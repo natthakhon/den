@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "den"
+  "defaultProject": "den",
+  "cli": {
+    "analytics": "6c1c5aeb-9233-4f3f-832c-070fa1024051"
+  }
 }

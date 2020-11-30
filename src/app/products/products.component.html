@@ -1,0 +1,21 @@
+<div class="left-main">
+  <h2>กลุ่มผลิตภัณฑ์</h2>
+  <ul class="products"  >
+    <li *ngFor="let cat of categories"
+      (click)="onCategorySelect(cat)"
+    >
+      {{cat.name}}
+    </li>
+  </ul>
+</div>
+<div class="right-main">
+  <ul class="model-ul">
+    <li class="model-li" *ngFor="let mod of models">
+      <a routerLink="/price/{{mod.name}}">
+        {{mod.name}}
+      </a>
+    </li>
+  </ul>
+</div>
+
+
