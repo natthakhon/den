@@ -1,3 +1,77 @@
-<div style="padding-top: 10%;padding-left: 50%;">
+<!--<div style="padding-top: 10%;padding-left: 50%;">
   {{price.categoryname}} &nbsp; &nbsp; &nbsp; {{price.modelname}}
+</div>-->
+
+<div class="left-main">
+  ค่าบริการเสริมสำหรับผลิตภัณฑ์ของคุณ <br><br>
+  ขยายการรับประกัน &nbsp; {{price.totalwarranty | number}} &nbsp; บาท <br><br>
+  บริการซ่อมนอกสถานที่ &nbsp; {{price.totalonsite | number}} &nbsp; บาท <br><br>
+  การบำรุงรักษา &nbsp; {{price.selectedMaintenancePrice | number}} &nbsp; บาท <br><br>
+  การติดตั้ง &nbsp; {{price.selectedInstallPrice | number}} &nbsp; บาท <br><br>
+  รวมทั้งสิ้น &nbsp; {{price.total | number}} &nbsp; บาท <br><br>
+  (ราคาไม่รวมVAT)
+</div>
+<div class="right-main">
+  {{price.categoryname}} &nbsp; &nbsp; &nbsp; {{price.modelname}}
+  <br><br>
+  <table>
+    <thead>
+      <tr>
+        <th>รายการ</th>
+        <th *ngIf="price.colmax > 0">ปีที่ 1</th>
+        <th *ngIf="price.colmax > 1">ปีที่ 2</th>
+        <th *ngIf="price.colmax > 2">ปีที่ 3</th>
+        <th *ngIf="price.colmax > 3">ปีที่ 4</th>
+        <th *ngIf="price.colmax > 4">ปีที่ 5</th>
+        <th *ngIf="price.colmax > 5">ปีที่ 6</th>
+        <th *ngIf="price.colmax > 6">ปีที่ 7</th>
+        <th *ngIf="price.colmax > 7">ปีที่ 8</th>
+        <th *ngIf="price.colmax > 8">ปีที่ 9</th>
+        <th *ngIf="price.colmax > 9">ปีที่ 10</th>
+        <th *ngIf="price.colmax > 10">ปีที่ 11</th>
+        <th *ngIf="price.colmax > 11">ปีที่ 12</th>
+        <th *ngIf="price.colmax > 12">ปีที่ 13</th>
+        <th *ngIf="price.colmax > 13">ปีที่ 14</th>
+        <th *ngIf="price.colmax > 14">ปีที่ 15</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ขยายการรับประกัน</td>
+        <td *ngIf="price.colmax > 0">{{price.displayWarranty[0]}}</td>
+        <td *ngIf="price.colmax > 1">{{price.displayWarranty[1]}}</td>
+        <td *ngIf="price.colmax > 2">{{price.displayWarranty[2]}}</td>
+        <td *ngIf="price.colmax > 3">{{price.displayWarranty[3]}}</td>
+        <td *ngIf="price.colmax > 4">{{price.displayWarranty[4]}}</td>
+        <td *ngIf="price.colmax > 5">{{price.displayWarranty[5]}}</td>
+        <td *ngIf="price.colmax > 6">{{price.displayWarranty[6]}}</td>
+        <td *ngIf="price.colmax > 7">{{price.displayWarranty[7]}}</td>
+        <td *ngIf="price.colmax > 8">{{price.displayWarranty[8]}}</td>
+        <td *ngIf="price.colmax > 9">{{price.displayWarranty[9]}}</td>
+        <td *ngIf="price.colmax > 10">{{price.displayWarranty[10]}}</td>
+        <td *ngIf="price.colmax > 11">{{price.displayWarranty[11]}}</td>
+        <td *ngIf="price.colmax > 12">{{price.displayWarranty[12]}}</td>
+        <td *ngIf="price.colmax > 13">{{price.displayWarranty[13]}}</td>
+        <td *ngIf="price.colmax > 14">{{price.displayWarranty[14]}}</td>
+      </tr>
+      <tr>
+        <td>บริการซ่อมนอกสถานที่</td>
+        <td *ngIf="price.colmax > 0">{{price.displayOnsite[0]}}</td>
+        <td *ngIf="price.colmax > 1">{{price.displayOnsite[1]}}</td>
+        <td *ngIf="price.colmax > 2">{{price.displayOnsite[2]}}</td>
+        <td *ngIf="price.colmax > 3">{{price.displayOnsite[3]}}</td>
+        <td *ngIf="price.colmax > 4">{{price.displayOnsite[4]}}</td>
+        <td *ngIf="price.colmax > 5">{{price.displayOnsite[5]}}</td>
+        <td *ngIf="price.colmax > 6">{{price.displayOnsite[6]}}</td>
+        <td *ngIf="price.colmax > 7">{{price.displayOnsite[7]}}</td>
+        <td *ngIf="price.colmax > 8">{{price.displayOnsite[8]}}</td>
+        <td *ngIf="price.colmax > 9">{{price.displayOnsite[9]}}</td>
+        <td *ngIf="price.colmax > 10">{{price.displayOnsite[10]}}</td>
+        <td *ngIf="price.colmax > 11">{{price.displayOnsite[11]}}</td>
+        <td *ngIf="price.colmax > 12">{{price.displayOnsite[12]}}</td>
+        <td *ngIf="price.colmax > 13">{{price.displayOnsite[13]}}</td>
+        <td *ngIf="price.colmax > 14">{{price.displayOnsite[14]}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

@@ -2,6 +2,7 @@
   float: left;
   width: 20%;
   padding-left: 4%;
+  word-wrap: break-word;
 }
 .right-main{
   float: right;

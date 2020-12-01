@@ -1,0 +1,22 @@
+.left-main{
+  float: left;
+  width: 20%;
+  padding-left: 4%;
+  padding-top: 10%;
+  word-wrap: break-word;
+}
+.right-main{
+  float: right;
+  width: 75%;
+  padding-top: 1%;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
