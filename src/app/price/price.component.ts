@@ -26,4 +26,17 @@ export class PriceComponent implements OnInit{
     this.price = pricemock.getServicePrice();
   }
 
+  bindMaintenancePrice(){
+    this.price.setMetenancePrice();
+    this.price.setTotal();
+  }
+
+  bindInstallPrice(){
+    this.price.setInstall();
+    this.price.setTotal();
+  }
+
+  bindTotalPrice(){
+    this.price.setTotal();
+  }
 }

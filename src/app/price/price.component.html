@@ -13,7 +13,15 @@
 </div>
 <div class="right-main">
   {{price.categoryname}} &nbsp; &nbsp; &nbsp; {{price.modelname}}
-  <br><br>
+  <p>
+    ประเภทเครื่อง
+    <input type="radio" id="old" name="type"
+            [value]=true [(ngModel)]="price.isOldMachine">
+    <label for="old">เก่า</label>
+    <input type="radio" id="new" name="type"
+            [value]=false [(ngModel)]="price.isOldMachine">
+    <label for="new">ใหม่</label>
+  </p>
   <table>
     <thead>
       <tr>
@@ -38,40 +46,230 @@
     <tbody>
       <tr>
         <td>ขยายการรับประกัน</td>
-        <td *ngIf="price.colmax > 0">{{price.displayWarranty[0]}}</td>
-        <td *ngIf="price.colmax > 1">{{price.displayWarranty[1]}}</td>
-        <td *ngIf="price.colmax > 2">{{price.displayWarranty[2]}}</td>
-        <td *ngIf="price.colmax > 3">{{price.displayWarranty[3]}}</td>
-        <td *ngIf="price.colmax > 4">{{price.displayWarranty[4]}}</td>
-        <td *ngIf="price.colmax > 5">{{price.displayWarranty[5]}}</td>
-        <td *ngIf="price.colmax > 6">{{price.displayWarranty[6]}}</td>
-        <td *ngIf="price.colmax > 7">{{price.displayWarranty[7]}}</td>
-        <td *ngIf="price.colmax > 8">{{price.displayWarranty[8]}}</td>
-        <td *ngIf="price.colmax > 9">{{price.displayWarranty[9]}}</td>
-        <td *ngIf="price.colmax > 10">{{price.displayWarranty[10]}}</td>
-        <td *ngIf="price.colmax > 11">{{price.displayWarranty[11]}}</td>
-        <td *ngIf="price.colmax > 12">{{price.displayWarranty[12]}}</td>
-        <td *ngIf="price.colmax > 13">{{price.displayWarranty[13]}}</td>
-        <td *ngIf="price.colmax > 14">{{price.displayWarranty[14]}}</td>
+        <td *ngIf="price.colmax > 0">
+          <input type="radio" id="warrantyPrice0" name="warrantyPrice0"
+            value={{price.displayWarranty[0]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[0] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[0] | number}}
+        </td>
+        <td *ngIf="price.colmax > 1">
+          <input type="radio" id="warrantyPrice1" name="warrantyPrice1"
+            value={{price.displayWarranty[1]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[1] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[1] | number}}
+        </td>
+        <td *ngIf="price.colmax > 2">
+          <input type="radio" id="warrantyPrice2" name="warrantyPrice2"
+            value={{price.displayWarranty[2]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[2] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[2] | number}}
+        </td>
+        <td *ngIf="price.colmax > 3">
+          <input type="radio" id="warrantyPrice3" name="warrantyPrice3"
+            value={{price.displayWarranty[3]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[3] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[3] | number}}
+        </td>
+        <td *ngIf="price.colmax > 4">
+          <input type="radio" id="warrantyPrice4" name="warrantyPrice4"
+            value={{price.displayWarranty[4]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[4] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[4] | number}}
+        </td>
+        <td *ngIf="price.colmax > 5">
+          <input type="radio" id="warrantyPrice5" name="warrantyPrice5"
+            value={{price.displayWarranty[5]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[5] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[5] | number}}
+        </td>
+        <td *ngIf="price.colmax > 6">
+          <input type="radio" id="warrantyPrice6" name="warrantyPrice6"
+            value={{price.displayWarranty[6]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[6] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[6] | number}}
+        </td>
+        <td *ngIf="price.colmax > 7">
+          <input type="radio" id="warrantyPrice7" name="warrantyPrice7"
+            value={{price.displayWarranty[7]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[7] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[7] | number}}
+        </td>
+        <td *ngIf="price.colmax > 8">
+          <input type="radio" id="warrantyPrice8" name="warrantyPrice8"
+            value={{price.displayWarranty[8]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[8] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[8] | number}}
+        </td>
+        <td *ngIf="price.colmax > 9">
+          <input type="radio" id="warrantyPrice9" name="warrantyPrice9"
+            value={{price.displayWarranty[9]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[9] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[9] | number}}
+        </td>
+        <td *ngIf="price.colmax > 10">
+          <input type="radio" id="warrantyPrice10" name="warrantyPrice10"
+            value={{price.displayWarranty[10]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[10] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[10] | number}}
+        </td>
+        <td *ngIf="price.colmax > 11">
+          <input type="radio" id="warrantyPrice11" name="warrantyPrice11"
+            value={{price.displayWarranty[11]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[11] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[11] | number}}
+        </td>
+        <td *ngIf="price.colmax > 12">
+          <input type="radio" id="warrantyPrice12" name="warrantyPrice12"
+            value={{price.displayWarranty[12]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[12] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[12] | number}}
+        </td>
+        <td *ngIf="price.colmax > 13">
+          <input type="radio" id="warrantyPrice13" name="warrantyPrice13"
+            value={{price.displayWarranty[13]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[13] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[13] | number}}
+        </td>
+        <td *ngIf="price.colmax > 14">
+          <input type="radio" id="warrantyPrice14" name="warrantyPrice14"
+            value={{price.displayWarranty[14]}} [(ngModel)]="price.totalwarranty"
+            [disabled]="price.displayWarranty[14] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayWarranty[14] | number}}
+        </td>
       </tr>
       <tr>
         <td>บริการซ่อมนอกสถานที่</td>
-        <td *ngIf="price.colmax > 0">{{price.displayOnsite[0]}}</td>
-        <td *ngIf="price.colmax > 1">{{price.displayOnsite[1]}}</td>
-        <td *ngIf="price.colmax > 2">{{price.displayOnsite[2]}}</td>
-        <td *ngIf="price.colmax > 3">{{price.displayOnsite[3]}}</td>
-        <td *ngIf="price.colmax > 4">{{price.displayOnsite[4]}}</td>
-        <td *ngIf="price.colmax > 5">{{price.displayOnsite[5]}}</td>
-        <td *ngIf="price.colmax > 6">{{price.displayOnsite[6]}}</td>
-        <td *ngIf="price.colmax > 7">{{price.displayOnsite[7]}}</td>
-        <td *ngIf="price.colmax > 8">{{price.displayOnsite[8]}}</td>
-        <td *ngIf="price.colmax > 9">{{price.displayOnsite[9]}}</td>
-        <td *ngIf="price.colmax > 10">{{price.displayOnsite[10]}}</td>
-        <td *ngIf="price.colmax > 11">{{price.displayOnsite[11]}}</td>
-        <td *ngIf="price.colmax > 12">{{price.displayOnsite[12]}}</td>
-        <td *ngIf="price.colmax > 13">{{price.displayOnsite[13]}}</td>
-        <td *ngIf="price.colmax > 14">{{price.displayOnsite[14]}}</td>
+        <td *ngIf="price.colmax > 0">
+          <input type="radio" id="onsite0" name="onsite0"
+            value={{price.displayOnsite[0]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[0] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[0] | number}}
+        </td>
+        <td *ngIf="price.colmax > 1">
+          <input type="radio" id="onsite1" name="onsite1"
+            value={{price.displayOnsite[1]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[1] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[1] | number}}
+        </td>
+        <td *ngIf="price.colmax > 2">
+          <input type="radio" id="onsite2" name="onsite2"
+            value={{price.displayOnsite[2]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[2] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[2] | number}}
+        </td>
+        <td *ngIf="price.colmax > 3">
+          <input type="radio" id="onsite3" name="onsite3"
+            value={{price.displayOnsite[3]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[3] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[3] | number}}
+        </td>
+        <td *ngIf="price.colmax > 4">
+          <input type="radio" id="onsite4" name="onsite4"
+            value={{price.displayOnsite[4]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[4] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[4] | number}}
+        </td>
+        <td *ngIf="price.colmax > 5">
+          <input type="radio" id="onsite5" name="onsite5"
+            value={{price.displayOnsite[5]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[5] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[5] | number}}
+        </td>
+        <td *ngIf="price.colmax > 6">
+          <input type="radio" id="onsite6" name="onsite6"
+            value={{price.displayOnsite[6]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[6] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[6] | number}}
+        </td>
+        <td *ngIf="price.colmax > 7">
+          <input type="radio" id="onsite7" name="onsite7"
+            value={{price.displayOnsite[7]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[7] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[7] | number}}
+        </td>
+        <td *ngIf="price.colmax > 8">
+          <input type="radio" id="onsite8" name="onsite8"
+            value={{price.displayOnsite[8]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[8] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[8] | number}}
+        </td>
+        <td *ngIf="price.colmax > 9">
+          <input type="radio" id="onsite9" name="onsite9"
+            value={{price.displayOnsite[9]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[9] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[9] | number}}
+        </td>
+        <td *ngIf="price.colmax > 10">
+          <input type="radio" id="onsite10" name="onsite10"
+            value={{price.displayOnsite[10]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[10] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[10] | number}}
+        </td>
+        <td *ngIf="price.colmax > 11">
+          <input type="radio" id="onsite11" name="onsite11"
+            value={{price.displayOnsite[11]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[11] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[11] | number}}
+        </td>
+        <td *ngIf="price.colmax > 12">
+          <input type="radio" id="onsite12" name="onsite12"
+            value={{price.displayOnsite[12]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[12] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[12] | number}}
+        </td>
+        <td *ngIf="price.colmax > 13">
+          <input type="radio" id="onsite13" name="onsite13"
+            value={{price.displayOnsite[13]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[13] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[13] | number}}
+        </td>
+        <td *ngIf="price.colmax > 14">
+          <input type="radio" id="onsite14" name="onsite2"
+            value={{price.displayOnsite[14]}} [(ngModel)]="price.totalonsite"
+            [disabled]="price.displayOnsite[14] == 0"
+            (change) = "bindTotalPrice()">
+            {{price.displayOnsite[14] | number}}
+        </td>
       </tr>
     </tbody>
   </table>
+  <p>
+    <input type="checkbox" name="installPrice" id ="installPrice"
+            value={{price.isInstallment}} [(ngModel)]="price.isInstallment"
+            (change) = "bindInstallPrice()">
+    การติดตั้ง
+    <input type="checkbox" name="maintenancePrice" id ="maintenancePrice"
+            value={{price.isMaintenance}} [(ngModel)]="price.isMaintenance"
+            (change) = "bindMaintenancePrice()">
+    การบำรุงรักษา
+  </p>
 </div>

@@ -2,18 +2,16 @@ export class ServicePrice{
   constructor(
     public modelname: string,
     public categoryname: string,
-    public warrantyPrice: number[],
-    public isWarranty: boolean[],
-    public displayWarranty: number[],
-    public onSiteService: number[],
-    public isOnSiteService: boolean[],
-    public displayOnsite: number[],
-    public isMaintenance: boolean,
-    public maintenancePrice: number,
-    public selectedMaintenancePrice: number,
-    public isInstallment: boolean,
-    public installprice: number,
-    public selectedInstallPrice: number,
+    public warrantyPrice: number[], // price from api
+    public displayWarranty: number[], // adjusted warranty price to display on screen
+    public onSiteService: number[],   // price from api
+    public displayOnsite: number[],     // adjusted onsite price to display on screen
+    public isMaintenance: boolean,      // maintenance option checkbox
+    public maintenancePrice: number,   // maintenance price from api
+    public selectedMaintenancePrice: number,   // maintenance price from user
+    public isInstallment: boolean,     // installment option checkbox
+    public installprice: number,       // install price from api
+    public selectedInstallPrice: number,   // install price from user
     public isOldMachine: boolean,
     public totalwarranty: number,
     public totalonsite: number,
@@ -28,32 +26,6 @@ export class ServicePrice{
     this.setcol็Max();
     this.setdisplayWarranty();
     this.setdisplayOnSite();
-    this.setonsite();
-    this.setwarranty();
-    this.total = this.totalwarranty + this.totalonsite +
-                  this.selectedMaintenancePrice + this.selectedInstallPrice;
-  }
-
-  setwarranty(){
-    this.totalwarranty = 0;
-
-    for (let i = 0; i < this.isWarranty.length; i++) {
-      if (this.isWarranty[i] == true){
-        this.totalwarranty = this.warrantyPrice[i];
-        break;
-      }
-    }
-  }
-
-  setonsite(){
-    this.totalonsite = 0;
-
-    for (let i = 0; i < this.isOnSiteService.length; i++) {
-      if (this.isOnSiteService[i] == true){
-        this.totalonsite = this.onSiteService[i];
-        break;
-      }
-    }
   }
 
   setMetenancePrice(){
@@ -72,6 +44,13 @@ export class ServicePrice{
     else{
       this.selectedInstallPrice = 0;
     }
+  }
+
+  setTotal(){
+    this.total = parseInt(this.selectedInstallPrice.toString()) +
+                  parseInt(this.selectedMaintenancePrice.toString()) +
+                  parseInt(this.totalwarranty.toString()) +
+                  parseInt(this.totalonsite.toString());
   }
 
   setcol็Max(){
