@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ServicePrice} from '../../vm/servicePrice'
 import { ActivatedRoute } from '@angular/router';
 import {ServicePriceMock} from '../../mock/servicePrice'
+import * as XLSX from 'xlsx';
+import {serialNoFile} from '../../vm/excel/serialnosFile'
 
 @Component({
   selector: 'app-model',
@@ -12,6 +14,7 @@ import {ServicePriceMock} from '../../mock/servicePrice'
 export class PriceComponent implements OnInit{
 
   price! : ServicePrice;
+  serials!:serialNoFile[];
 
   constructor(private route: ActivatedRoute){
     this.getModel();
@@ -38,5 +41,18 @@ export class PriceComponent implements OnInit{
 
   bindTotalPrice(){
     this.price.setTotal();
+  }
+
+  readfile(file:any){
+    const reader = new FileReader();
+    reader.readAsBinaryString(file.target.files[0]);
+    reader.onload = (e: any) => {
+      const bstr: string = e.target.result;
+      const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
+      const wsname: string = wb.SheetNames[0];
+      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+
+      this.serials = (XLSX.utils.sheet_to_json<serialNoFile>(ws, { header: 0 }));
+    }
   }
 }

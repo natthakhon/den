@@ -21,6 +21,8 @@ export class ServicePriceMock{
         ,0
         ,0
         ,0
+        ,true
+        ,""
         )
   }
 }

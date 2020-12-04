@@ -16,7 +16,9 @@ export class ServicePrice{
     public totalwarranty: number,
     public totalonsite: number,
     public total: number,
-    public colmax: number
+    public colmax: number,
+    public isOneMachine: boolean,   // option for serail no
+    public serialNo: string,
   )
   {
     this.setvalue();

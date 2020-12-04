@@ -272,4 +272,28 @@
             (change) = "bindMaintenancePrice()">
     การบำรุงรักษา
   </p>
+  <fieldset>
+    <legend>หมายเลขเครื่อง:</legend>
+    <input type="radio" id="one" name="serial"
+            [value]=true [(ngModel)]="price.isOneMachine">
+    <label for="one">1 เครื่อง</label>
+    <input type="radio" id="multi" name="serial"
+            [value]=false [(ngModel)]="price.isOneMachine">
+    <label for="multi">หลายเครื่อง</label>
+    <p>
+      <input *ngIf="price.isOneMachine" type="text"
+            placeholder="หมายเลขเครื่อง" [(ngModel)]="price.serialNo">
+      <input type="file" (change)="readfile($event)" #fileUpload hidden>
+      <button *ngIf="!price.isOneMachine" (click)="fileUpload.click()">Browse</button>
+    </p>
+    <div *ngIf="!price.isOneMachine">
+      <table>
+        <tbody>
+          <tr *ngFor="let row of serials">
+            <td> {{row.serialNo}} </td>
+        </tbody>
+      </table>
+    </div>
+  </fieldset>
+
 </div>
