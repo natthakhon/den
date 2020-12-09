@@ -7,11 +7,18 @@ import { AppComponent } from './app.component';
 import {ProductsComponent} from '../app/products/products.component';
 import {PriceComponent} from '../app/price/price.component';
 
+import {SerialExistsDirective} from '../validators/isSerialExistsDirective';
+import {FileUploadedDirective} from '../validators/isUploadFiles';
+import {HasRecordDirective} from '../validators/hasRecord';
+
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     PriceComponent,
+    SerialExistsDirective,
+    FileUploadedDirective,
+    HasRecordDirective
   ],
   imports: [
     BrowserModule,

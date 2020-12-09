@@ -15,6 +15,7 @@ export class PriceComponent implements OnInit{
 
   price! : ServicePrice;
   serials!:serialNoFile[];
+  filecontent:any;
 
   constructor(private route: ActivatedRoute){
     this.getModel();
@@ -47,12 +48,20 @@ export class PriceComponent implements OnInit{
     const reader = new FileReader();
     reader.readAsBinaryString(file.target.files[0]);
     reader.onload = (e: any) => {
-      const bstr: string = e.target.result;
-      const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
-      const wsname: string = wb.SheetNames[0];
-      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
-
-      this.serials = (XLSX.utils.sheet_to_json<serialNoFile>(ws, { header: 0 }));
+      try{
+        const bstr: string = e.target.result;
+        const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
+        const wsname: string = wb.SheetNames[0];
+        const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+        this.serials = (XLSX.utils.sheet_to_json<serialNoFile>(ws, { header: 0 }));
+      }
+      catch{
+        this.serials = [];
+      }
     }
+  }
+
+  submit(form:any){
+    console.log(form.value);
   }
 }

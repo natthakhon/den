@@ -19,4 +19,9 @@ td, th {
   text-align: left;
   padding: 8px;
 }
+.error{
+  color:red;
+  font-weight: bold;
+  border-style: none;
+}
 
