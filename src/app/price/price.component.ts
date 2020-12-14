@@ -18,10 +18,11 @@ export class PriceComponent implements OnInit{
   filecontent:any;
 
   constructor(private route: ActivatedRoute){
-    this.getModel();
+
   }
 
   ngOnInit() {
+    this.getModel();
   }
 
   getModel():void{

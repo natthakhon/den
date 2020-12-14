@@ -280,33 +280,33 @@
       <input type="radio" id="multi" name="serial"
               [value]=false [(ngModel)]="price.isOneMachine">
       <label for="multi">หลายเครื่อง</label>
-      <input style="margin-left: 3em;" type="submit" value="เพิ่มลงในตระกร้าสินค้า"
+      <input style="margin-left: 3em;" type="submit"
+          value="เพิ่มลงในตระกร้าสินค้า" routerLink="/basket"
           [disabled]="!purchaseform.form.valid">
       <div style="padding-top: 0.5em;" *ngIf="price.isOneMachine">
         <input type="text"
-              name="onemachine" id="onemachine" [(ngModel)]="price.serialNo"
-              #onemachine="ngModel" isSerialExist1
+              name="onemachine"
+              #onemachine="ngModel"
+              [(ngModel)]="price.serialNo" isSerialExist1
               placeholder="หมายเลขเครื่อง" >
         <label class="error">{{onemachine.errors?.isSerialExist}}</label>
       </div>
-      <div style="padding-top: 0.5em;">
+      <div style="padding-top: 0.5em;" *ngIf="!price.isOneMachine">
         <input type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
                 (change)="readfile($event)"
                 name="fileUpload"
                 #fileUpload [(ngModel)]="filecontent" isFileUploaded hidden>
-        <button *ngIf="!price.isOneMachine" (click)="fileUpload.click()">Browse</button>
+        <button (click)="fileUpload.click()">Browse</button>
         <label *ngIf="purchaseform.controls['fileUpload'].errors?.fileError && !price.isOneMachine"
               class="error">ไฟล์ไม่ถูกต้อง
         </label>
         <input type="text" name="filesize" #filesize
                 [(ngModel)] ="serials.length" hasRecord hidden>
         <label *ngIf="purchaseform.controls['filesize'].errors?.hasRecordError && !price.isOneMachine"
-              class="error">ไม่มีข้อมูล
+                class="error">ไม่มีข้อมูล
         </label>
       </div>
-      <div>
 
-      </div>
       <div *ngIf="!price.isOneMachine">
         <table>
           <tbody>

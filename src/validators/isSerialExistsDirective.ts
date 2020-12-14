@@ -9,8 +9,10 @@ import { SERIALS} from "../mock/serial";
 
 export class SerialExistsDirective implements Validator{
 
+  constructor(){}
+
   validate(control: AbstractControl): ValidationErrors | null {
-    
+
     if (control.value != ''){
       if (!SERIALS.includes(control.value)){
         return { 'isSerialExist': 'ไม่พบหมายเลขเครื่อง' };
