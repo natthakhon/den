@@ -1,0 +1,32 @@
+<div style="width: 100%;" [formGroup]="addressForm">
+  <fieldset>
+    <legend>ที่อยู่</legend>
+    <div style="width: 100%;">
+      <div style="width: 33.33%;float:left;">
+        <input style="width: 90%;" type="text" formControlName="address1" placeholder="เลขที่" >
+      </div>
+      <div style="width:33.33%;float: left;">
+        <input style="width: 90%;" type="text" formControlName="address2" placeholder="ถนน" >
+      </div>
+      <div style="width:33.33%;float:left;">
+        <input (change)="getaddress()" list="zip" style="width: 90%;" type="text" formControlName="zip" placeholder="รหัสไปรษณีย์" >
+        <datalist id="zip" name="zip">
+          <option *ngFor="let item of zipcodes" [value]="item">{{item}}</option>
+        </datalist>
+      </div>
+    </div>
+    <div style="width: 100%;display: inline-block;" *ngIf="addressForm.controls.address1.errors" >
+      <div *ngIf="addressForm.controls.address1.errors?.required" style="width: 66.66%;float: left;">required</div>
+      <div *ngIf="addressForm.controls.zip.errors?.required" style="width: 33.33%;float: left;">required</div>
+    </div>
+    <div style="width: 100%;" >
+      <div style="width: 33.33%;float: left;">{{selectedZip?.Changwad}}</div>
+      <div style="width: 33.33%;float: left;">{{selectedZip?.Khet}}</div>
+      <div style="width: 33.33%;float: left;">{{selectedZip?.Tumbol}}</div>
+    </div>
+  </fieldset>
+  <p>
+    Form Status: {{ addressForm.status }}
+  </p>
+</div>
+

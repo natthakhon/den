@@ -2,11 +2,11 @@ import { Directive } from "@angular/core";
 import { AbstractControl, Validator, NG_VALIDATORS, ValidationErrors, } from "@angular/forms";
 
 @Directive({
-  selector: '[hasRecord]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: HasRecordDirective, multi: true }]
+  selector: '[isValidZip]',
+  providers: [{ provide: NG_VALIDATORS, useExisting: IsValidZipcode, multi: true }]
 })
 
-export class HasRecordDirective implements Validator{
+export class IsValidZipcode implements Validator{
 
   validate(control: AbstractControl): ValidationErrors | null {
     if (control.value == null || control.value < 1){
